@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 🤖 Voice-to-Sign Robotic Hand
+=======
+# 👋🤖 Voice-to-Sign Robotic Hand
+>>>>>>> 0109685cf6956342a6c0a8eb841b1bcca2479cf8
 
 > A 3D-printed robotic hand that listens to spoken Spanish and translates it into **Spanish Sign Language (LSE)** gestures — letter by letter.
 
@@ -62,7 +66,11 @@ The web interface (`app.py`) runs the same pipeline via Flask, broadcasting stat
 | Finger servos | SG90 | 5 |
 | Wrist servos | MG90S | 2 |
 | Transistors (GPIO protection) | 2N2222 | 7 |
+<<<<<<< HEAD
 | 3D-printed hand | [Instructables design](https://www.instructables.com) | 1 |
+=======
+| 3D-printed hand | [Instructables design](https://www.instructables.com/3D-Printed-Robotic-Hand) | 1 |
+>>>>>>> 0109685cf6956342a6c0a8eb841b1bcca2479cf8
 | External power supply | 5V battery pack | 1 |
 
 The transistor circuit isolates the servo power rail from the Raspberry Pi GPIO pins, preventing damage from inrush current.
@@ -73,7 +81,11 @@ The transistor circuit isolates the servo power rail from the Raspberry Pi GPIO 
 
 | Library | Purpose |
 |---|---|
+<<<<<<< HEAD
 | `vosk` | Speech recognition processed on-device |
+=======
+| `vosk` | Offline-capable speech recognition |
+>>>>>>> 0109685cf6956342a6c0a8eb841b1bcca2479cf8
 | `sounddevice` | Audio capture |
 | `flask` | Web server and SSE streaming |
 | `gpiozero` + `pigpio` | Servo PWM control via GPIO |
@@ -85,7 +97,11 @@ The transistor circuit isolates the servo power rail from the Raspberry Pi GPIO 
 
 ### 1. Clone the repository
 ```bash
+<<<<<<< HEAD
 git clone https://github.com/AlejandraBotin/voice-to-sign-robotic-hand.git
+=======
+git clone https://github.com/your-username/voice-to-sign-hand.git
+>>>>>>> 0109685cf6956342a6c0a8eb841b1bcca2479cf8
 cd voice-to-sign-hand
 ```
 
@@ -190,7 +206,11 @@ To adapt the system to a different sign language, replace or extend `Alphabet.xl
 
 **Alejandra Botín Lehm**  
 ICAI – Universidad Pontificia Comillas  
+<<<<<<< HEAD
 Supervisor: Francisco Martín Martínez
+=======
+Supervisor: Francisco Martín Martínez  
+>>>>>>> 0109685cf6956342a6c0a8eb841b1bcca2479cf8
 
 ---
 
