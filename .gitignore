@@ -1,0 +1,23 @@
+# Sistema
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.save
+
+# Archivos obsoletos
+main_sinmano.py
+
+# Editor / herramientas
+.claude/
+.vscode/
+*.swp
+
+# Modelo Vosk (demasiado grande para el repo)
+modelos/
+vosk-model*/
+
+# Entorno virtual
+venv/
+env/
+.env
