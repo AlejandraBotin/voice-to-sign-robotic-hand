@@ -1,4 +1,4 @@
-# 🤖 Voice-to-Sign Robotic Hand
+# 👋🤖 Voice-to-Sign Robotic Hand
 
 > A 3D-printed robotic hand that listens to spoken Spanish and translates it into **Spanish Sign Language (LSE)** gestures — letter by letter.
 
