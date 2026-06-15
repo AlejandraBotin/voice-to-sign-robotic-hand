@@ -60,7 +60,7 @@ The objective is to facilitate communication and promote educational inclusion b
 
 ---
 
-**Author:** Alejandra Botín<br>
+**Author:** Alejandra Botín  **Director:** Francisco Martín<br>
 **Degree:** Double Major in Telecommunications Engineering and Business Analytics<br>
 **Institution:** ICAI - Universidad Pontificia Comillas
 
