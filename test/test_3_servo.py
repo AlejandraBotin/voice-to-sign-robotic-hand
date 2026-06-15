@@ -4,19 +4,12 @@ import pandas as pd
 from servo_controller import ServoController
 from finger import Finger, FingerAngles
 
-# -----------------------
-# CONFIG GPIO (BCM)
-# Pulgar  -> GPIO17 (pin físico 11)
-# Índice  -> GPIO27 (pin físico 13)
-# Corazón -> GPIO22 (pin físico 15)
-# -----------------------
 PINS = {
     "Thumb": 17,
     "Index": 27,
     "Middle": 22,
 }
 
-# Ajusta esto si algún dedo abre/cierra al revés o no llega bien
 DEFAULT_ANGLES = FingerAngles(open_angle=0.0, mid_angle=90.0, closed_angle=180.0)
 
 ALPHABET_PATH = "Alphabet.xlsx"
@@ -29,25 +22,20 @@ def load_mapping_from_excel_thumb_index_middle(path: str):
     required_cols = ["Character", "Thumb", "Index Finger", "Middle Finger"]
     for c in required_cols:
         if c not in df.columns:
-            raise ValueError(
-                f"Falta columna '{c}' en el Excel. Columnas encontradas: {list(df.columns)}"
-            )
+            raise ValueError(f"Falta columna '{c}' en el Excel. Columnas encontradas: {list(df.columns)}")
 
     mapping = {}
     for _, row in df.iterrows():
         ch = str(row["Character"]).strip()
-
-        thumb_level = int(row["Thumb"])
-        index_level = int(row["Index Finger"])
+        thumb_level  = int(row["Thumb"])
+        index_level  = int(row["Index Finger"])
         middle_level = int(row["Middle Finger"])
-
         mapping[ch] = [thumb_level, index_level, middle_level]
 
     return mapping
 
 
 def apply_pose_three(fingers, levels):
-    # levels: [thumb, index, middle]
     for finger, level in zip(fingers, levels):
         finger.set_position(level)
 
@@ -70,7 +58,6 @@ def main():
         servos[name] = ServoController(pin=gpio, min_angle=0, max_angle=180)
         fingers.append(Finger(servo=servos[name], name=name, angles=DEFAULT_ANGLES))
 
-    # Orden fijo: Thumb, Index, Middle (como el Excel)
     ordered_fingers = [
         next(f for f in fingers if f.name == "Thumb"),
         next(f for f in fingers if f.name == "Index"),
@@ -78,10 +65,8 @@ def main():
     ]
 
     try:
-        # 1) Prueba básica sincronizada
         test_levels_three(ordered_fingers)
 
-        # 2) Barrido por el Excel (solo 3 dedos)
         print(f"\nCargando mapeo desde: {ALPHABET_PATH}")
         mapping = load_mapping_from_excel_thumb_index_middle(ALPHABET_PATH)
 
@@ -91,7 +76,6 @@ def main():
             apply_pose_three(ordered_fingers, levels)
             sleep(STEP_SLEEP)
 
-        # 3) Abrir al final
         print("\nAbriendo mano (nivel 0) al final...")
         apply_pose_three(ordered_fingers, [0, 0, 0])
         sleep(1.0)

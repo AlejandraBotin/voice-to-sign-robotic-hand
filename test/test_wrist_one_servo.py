@@ -3,30 +3,20 @@ from time import sleep
 from servo_controller import ServoController
 from wrist import Wrist, WristAngles
 
-# GPIO del ÚNICO servo conectado (rotación)
-ROT_GPIO = 12  # cambia si lo tienes en otro
+ROT_GPIO = 12
+
 
 class DummyServo:
-    """Servo ficticio para flexión (no hace nada)."""
     def move_to(self, angle: float):
         pass
 
 
 def main():
-    rot_servo = ServoController(pin=ROT_GPIO, min_angle=0, max_angle=180)
+    rot_servo  = ServoController(pin=ROT_GPIO, min_angle=0, max_angle=180)
     dummy_flex = DummyServo()
 
-    angles = WristAngles(
-        rot_neutral=90,
-        rot_left=180,
-        rot_right=0
-    )
-
-    wrist = Wrist(
-        flex_servo=dummy_flex,
-        rot_servo=rot_servo,
-        angles=angles
-    )
+    angles = WristAngles(rot_neutral=90, rot_left=180, rot_right=0)
+    wrist  = Wrist(flex_servo=dummy_flex, rot_servo=rot_servo, angles=angles)
 
     try:
         print("Neutral (0)")
@@ -40,7 +30,6 @@ def main():
 
         print("Alternate L/R (6)")
         wrist.apply_code(6, dyn_cycles=4, dyn_delay=0.35)
-
         sleep(1)
 
         print("Spin (5)")
