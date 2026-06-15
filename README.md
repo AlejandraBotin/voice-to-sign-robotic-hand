@@ -62,7 +62,7 @@ The web interface (`app.py`) runs the same pipeline via Flask, broadcasting stat
 | Finger servos | SG90 | 5 |
 | Wrist servos | MG90S | 2 |
 | Transistors (GPIO protection) | 2N2222 | 7 |
-| 3D-printed hand | [Instructables design](https://www.instructables.com) | 1 |
+| 3D-printed hand | [Instructables design](https://www.instructables.com/3D-Printed-Robotic-Hand) | 1 |
 | External power supply | 5V battery pack | 1 |
 
 The transistor circuit isolates the servo power rail from the Raspberry Pi GPIO pins, preventing damage from inrush current.
