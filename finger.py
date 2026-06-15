@@ -7,7 +7,6 @@ from typing import List, Sequence
 
 @dataclass(frozen=True)
 class FingerAngles:
-    # nivel 0 = abierto, 1 = medio, 2 = cerrado
     open_angle:   float = 0.0
     mid_angle:    float = 90.0
     closed_angle: float = 180.0

@@ -16,12 +16,6 @@ class WristAngles:
 
 
 class Wrist:
-    """
-    Códigos de muñeca (definidos en Alphabet.xlsx):
-      0 recta  1 izquierda  2 derecha  3 delante  4 detrás
-      5 da vueltas (dinámico)  6 izda/dcha (dinámico)
-    """
-
     def __init__(self, flex_servo, rot_servo, name: str = "wrist", angles: WristAngles | None = None):
         self.flex_servo = flex_servo
         self.rot_servo  = rot_servo
