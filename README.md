@@ -178,7 +178,6 @@ To adapt the system to a different sign language, replace or extend `Alphabet.xl
 
 ## Future Work
 
-- Extend vocabulary beyond the alphabet to full common words
 - Refine servo calibration for improved gesture legibility
 - Validate the system with real users in educational settings
 - Add an interactive learning mode to the web interface
